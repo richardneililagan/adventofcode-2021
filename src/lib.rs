@@ -4,7 +4,9 @@ extern crate aoc_runner;
 extern crate aoc_runner_derive;
 
 // :: add day solutions here ---
-// pub mod day1;
+pub mod solutions {
+    pub mod day1;
+}
 // :: ---
 
 aoc_lib! { year = 2021 }
