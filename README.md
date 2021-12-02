@@ -14,10 +14,16 @@ $ cargo aoc bench
 
 Solutions and benchmarks are run on a `t6g.medium` [Graviton2][graviton2] instance on AWS EC2.
 
-| | | Method | Part 1 | Part 2 |
-| --- | :-- | :-- | :-- | :-- |
-| `01` | **Sonar Sweep** | Original | `4.0161 μs` | `9.6716 μs` |
-| | | `windows` + `fold` | `1.7726 μs` | `4.3066 μs` |
+Variants marked as `original` were my first working solutions when I submitted them
+to the AoC event --- all subsequent variants in the same problem are just me trying
+out other approaches (most of the time because I learned something new since
+my initial solve.)
+
+|      |                 | Variant              | Part 1      | Part 2      |
+| ---- | :-------------- | :------------------- | ----------: | ----------: |
+| `01` | **Sonar Sweep** | `original`           | `4.0161 μs` | `9.6716 μs` |
+|      |                 | `windows_fold`       | `1.7726 μs` | `4.3066 μs` |
+|      |                 | `windows_fold_edges` | —           | `1.6559 μs` |
 
 
 ---

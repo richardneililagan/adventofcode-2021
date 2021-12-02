@@ -7,7 +7,7 @@ pub fn generator(input: &str) -> Vec<i32> {
         .collect()
 }
 
-#[aoc(day1, part1)]
+#[aoc(day1, part1, original)]
 pub fn solver_part1(input: &Vec<i32>) -> u32 {
     input
         .iter()
@@ -32,7 +32,7 @@ pub fn solver_part1_fold(input: &Vec<i32>) -> u32 {
         .fold(0, |acc, x| if x[1] > x[0] { acc + 1 } else { acc })
 }
 
-#[aoc(day1, part2)]
+#[aoc(day1, part2, original)]
 pub fn solver_part2(input: &Vec<i32>) -> u32 {
     let sums: Vec<i32> = (0..(input.len() - 2))
         .map(|i| input[i] + input[i + 1] + input[i + 2])
@@ -61,6 +61,26 @@ pub fn solver_part2_fold(input: &Vec<i32>) -> u32 {
         .collect::<Vec<i32>>()
         .windows(2)
         .fold(0, |acc, x| if x[1] > x[0] { acc + 1 } else { acc })
+}
+
+/// Takes advantage of the fact that since our comparisons are moving in a
+/// 3-element sliding window (i.e. [a, b, c] -> [b, c, d] -> [c, d, e] -> ...),
+/// we can reduce our core discriminator from
+///
+/// ```
+/// if (b + c + d) > (a + b + c) ...
+/// ```
+/// to just
+/// ```
+/// if (d) > (a) ...
+/// ```
+/// since the sliding window will always have the same middle 2 numbers,
+/// (and therefore does not affect the sum comparison).
+#[aoc(day1, part2, windows_fold_edges)]
+pub fn solver_part2_edges(input: &Vec<i32>) -> u32 {
+    input
+        .windows(4)
+        .fold(0, |acc, w| if w[3] > w[0] { acc + 1 } else { acc })
 }
 
 // :: ---
