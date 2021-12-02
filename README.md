@@ -14,9 +14,10 @@ $ cargo aoc bench
 
 Solutions and benchmarks are run on a `t6g.medium` [Graviton2][graviton2] instance on AWS EC2.
 
-| | | Part 1 | Part 2 |
-| --- | :-- | :-- | :-- |
-| `01` | **Sonar Sweep** | `4.0161 μs` | `9.6716 μs` |
+| | | Method | Part 1 | Part 2 |
+| --- | :-- | :-- | :-- | :-- |
+| `01` | **Sonar Sweep** | Original | `4.0161 μs` | `9.6716 μs` |
+| | | `windows` + `fold` | `1.7726 μs` | `4.3066 μs` |
 
 
 ---
