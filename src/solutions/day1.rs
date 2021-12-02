@@ -2,7 +2,7 @@
 pub fn generator(input: &str) -> Vec<i32> {
     input
         .lines()
-        // .map(|line| line.trim())
+        .map(|line| line.trim())
         .map(|line| i32::from_str_radix(line.trim(), 10).unwrap_or(0))
         .collect()
 }
