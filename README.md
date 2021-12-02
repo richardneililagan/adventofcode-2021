@@ -19,11 +19,12 @@ to the AoC event --- all subsequent variants in the same problem are just me try
 out other approaches (most of the time because I learned something new since
 my initial solve.)
 
-|      |                 | Variant              | Part 1      | Part 2      |
+|      |                 | Variant              |      Part 1 |      Part 2 |
 | ---- | :-------------- | :------------------- | ----------: | ----------: |
 | `01` | **Sonar Sweep** | `original`           | `4.0161 μs` | `9.6716 μs` |
 |      |                 | `windows_fold`       | `1.7726 μs` | `4.3066 μs` |
-|      |                 | `windows_fold_edges` | —           | `1.6559 μs` |
+|      |                 | `windows_fold_edges` |           — | `1.6559 μs` |
+| `02` | **Dive!**       | `original`           | `1.3414 μs` | `1.7086 μs` |
 
 
 ---
