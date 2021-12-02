@@ -6,6 +6,7 @@ extern crate aoc_runner_derive;
 // :: add day solutions here ---
 pub mod solutions {
     pub mod day1;
+    pub mod day2;
 }
 // :: ---
 
