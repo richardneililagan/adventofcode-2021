@@ -27,7 +27,7 @@ my initial solve.)
 | `02` | **Dive!**                | `original`           |   `1.3414 μs` |   `1.7086 μs` |
 | `03` | **Binary Diagnostic**    | `original`           |  `63.0750 μs` | `155.9200 μs` |
 | `04` | **Giant Squid**          | `original`           | `179.2700 μs` | `494.3300 μs` |
-| `05` | **Hydrothermal Venture** | `original`           |  `14.5240 ms` | `29.1250 ms` |
+| `05` | **Hydrothermal Venture** | `original`           |  `13.6720 ms` |  `26.6500 ms` |
 
 
 ---

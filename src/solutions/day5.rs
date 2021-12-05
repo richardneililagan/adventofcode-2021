@@ -1,4 +1,3 @@
-use std::cmp::{max, min};
 use std::collections::HashMap;
 
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
@@ -16,29 +15,25 @@ impl Segment {
     }
 
     /// Get the points that are on this line segment, including the endpoints.
-    fn get_points(&self) -> Option<Vec<Point>> {
+    fn get_points(&self) -> Vec<Point> {
         match self {
             Segment(Point(x1, m), Point(x2, n)) if x1 == x2 => {
-                let miny = min(*m, *n) + 1;
-                let maxy = max(*m, *n);
-                let mut points: Vec<Point> = vec![self.0, self.1];
+                let yrange = if m < n {
+                    (*m..=*n).collect::<Vec<i32>>()
+                } else {
+                    (*n..=*m).rev().collect::<Vec<i32>>()
+                };
 
-                (miny..maxy)
-                    .map(|y| Point(*x1, y))
-                    .for_each(|p| points.push(p));
-
-                Some(points)
+                yrange.iter().map(|&y| Point(*x1, y)).collect()
             }
             Segment(Point(m, y1), Point(n, y2)) if y1 == y2 => {
-                let minx = min(*m, *n) + 1;
-                let maxx = max(*m, *n);
-                let mut points: Vec<Point> = vec![self.0, self.1];
+                let xrange = if m < n {
+                    (*m..=*n).collect::<Vec<i32>>()
+                } else {
+                    (*n..=*m).rev().collect::<Vec<i32>>()
+                };
 
-                (minx..maxx)
-                    .map(|x| Point(x, *y1))
-                    .for_each(|p| points.push(p));
-
-                Some(points)
+                xrange.iter().map(|&x| Point(x, *y1)).collect()
             }
             Segment(Point(x1, y1), Point(x2, y2)) => {
                 let xrange = if x1 < x2 {
@@ -54,9 +49,7 @@ impl Segment {
                 };
 
                 let pairwise = xrange.iter().zip(yrange.into_iter());
-                let points = pairwise.map(|(&x, y)| Point(x, y)).collect();
-
-                Some(points)
+                pairwise.map(|(&x, y)| Point(x, y)).collect()
             }
         }
     }
@@ -92,14 +85,10 @@ pub fn solver_part1(input: &[Segment]) -> usize {
         .iter()
         .filter(|segment| !segment.is_diagonal())
         .for_each(|segment| {
-            let result_points = segment.get_points();
-            match result_points {
-                None => (),
-                Some(points) => points.iter().for_each(|p| {
-                    let map_point = map.entry(*p).or_insert(0);
-                    *map_point += 1;
-                }),
-            }
+            segment.get_points().iter().for_each(|p| {
+                let map_point = map.entry(*p).or_insert(0);
+                *map_point += 1;
+            })
         });
 
     map.iter().filter(|(_, &i)| i >= 2).count()
@@ -110,14 +99,10 @@ pub fn solver_part2(input: &[Segment]) -> usize {
     let mut map: HashMap<Point, i32> = HashMap::new();
 
     input.iter().for_each(|segment| {
-        let result_points = segment.get_points();
-        match result_points {
-            Some(points) => points.iter().for_each(|p| {
-                let map_point = map.entry(*p).or_insert(0);
-                *map_point += 1;
-            }),
-            _ => unreachable!(),
-        }
+        segment.get_points().iter().for_each(|p| {
+            let map_point = map.entry(*p).or_insert(0);
+            *map_point += 1;
+        })
     });
 
     map.iter().filter(|(_, &i)| i >= 2).count()
