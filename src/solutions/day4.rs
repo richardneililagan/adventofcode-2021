@@ -42,7 +42,7 @@ impl Board {
 #[aoc_generator(day4)]
 pub fn generator(input: &str) -> (Vec<i32>, Vec<Board>) {
     let mut lines = input.lines().map(|line| line.trim()).collect::<Vec<&str>>();
-    lines.retain(|line| *line != "");
+    lines.retain(|line| !line.is_empty());
 
     let called_numbers: Vec<i32> = lines[0]
         .split(',')
@@ -80,12 +80,9 @@ pub fn solver_part1((called_nums, b): &(Vec<i32>, Vec<Board>)) -> i32 {
 
     for &n in called_nums {
         boards.iter_mut().for_each(|b| b.call_number(n));
-        match boards.iter().find(|&board| board.is_bingo()) {
-            Some(b) => {
-                return b.uncalled_value() * n;
-            }
-            _ => (),
-        };
+        if let Some(b) = boards.iter().find(|&board| board.is_bingo()) {
+            return b.uncalled_value() * n;
+        }
     }
 
     unreachable!();

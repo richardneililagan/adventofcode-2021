@@ -63,7 +63,7 @@ pub fn generator(input: &str) -> Vec<Segment> {
         .map(|line| line.trim().replace(" -> ", ","))
         .map(|line| {
             // line = "1,2,3,4"
-            line.split(",")
+            line.split(',')
                 .map(|d| d.parse::<i32>().unwrap())
                 .collect::<Vec<i32>>()
         })
