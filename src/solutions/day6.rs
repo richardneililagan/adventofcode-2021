@@ -57,6 +57,17 @@ pub fn solver_part1(input: &[u8]) -> usize {
         .sum()
 }
 
+#[aoc(day6, part2, original)]
+pub fn solver_part2(input: &[u8]) -> usize {
+    const NUMBER_OF_DAYS: usize = 256;
+    let mut counter = OffspringCounter::new();
+
+    input
+        .iter()
+        .map(|d| counter.count_offspring(*d, NUMBER_OF_DAYS))
+        .sum()
+}
+
 // :: ---
 
 #[cfg(test)]
