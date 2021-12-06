@@ -28,6 +28,8 @@ my initial solve.)
 | `03` | **Binary Diagnostic**    | `original`           |  `63.0750 μs` | `155.9200 μs` |
 | `04` | **Giant Squid**          | `original`           | `179.2700 μs` | `494.3300 μs` |
 | `05` | **Hydrothermal Venture** | `original`           |  `13.6720 ms` |  `26.6500 ms` |
+| `06` | **Lanternfish**          | `original`           |  `37.8070 μs` | `103.6100 μs` |
+
 
 
 ---
