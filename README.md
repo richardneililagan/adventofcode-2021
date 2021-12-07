@@ -29,7 +29,8 @@ my initial solve.)
 | `04` | **Giant Squid**             | `original`           | `179.2700 μs` | `494.3300 μs` |
 | `05` | **Hydrothermal Venture**    | `original`           |  `13.6720 ms` |  `26.6500 ms` |
 | `06` | **Lanternfish**             | `original`           |  `37.8070 μs` | `103.6100 μs` |
-| `07` | **The Treachery of Whales** | `original`           |  `304.1700 μs` | `29.6860 ms` |
+| `07` | **The Treachery of Whales** | `original`           | `304.1700 μs` |  `29.6860 ms` |
+|      |                             | `triangular`         |             — |   `5.4531 ms` |
 
 
 

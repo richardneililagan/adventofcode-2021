@@ -49,6 +49,31 @@ pub fn solver_part2(input: &[i32]) -> u128 {
     minimumfuel
 }
 
+#[aoc(day7, part2, triangular)]
+pub fn solver_part2_triangular(input: &[i32]) -> u128 {
+    let cmin = input.iter().min().unwrap();
+    let cmax = input.iter().max().unwrap();
+
+    let mut minimumfuel = u128::MAX;
+
+    for i in *cmin..*cmax {
+        let s: u128 = input
+            .iter()
+            .map(|n| {
+                let steps: u128 = (i - n).abs() as u128;
+                let total_fuel: u128 = (steps * (steps + 1)) / 2;
+
+                total_fuel
+            })
+            .sum();
+
+        if s < minimumfuel {
+            minimumfuel = s;
+        }
+    }
+
+    minimumfuel
+}
 // :: ---
 
 #[cfg(test)]
