@@ -189,9 +189,6 @@ fn display_decoder(display: &SegmentDisplay) -> usize {
             acc + value * (10usize.pow(i.try_into().unwrap()))
         });
 
-    dbg!(&translated);
-    dbg!(&known_segments);
-
     output
 }
 

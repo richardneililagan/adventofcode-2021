@@ -31,6 +31,7 @@ my initial solve.)
 | `06` | **Lanternfish**             | `original`           |  `37.8070 μs` | `103.6100 μs` |
 | `07` | **The Treachery of Whales** | `original`           | `304.1700 μs` |  `29.6860 ms` |
 |      |                             | `triangular`         |             — |   `5.4531 ms` |
+| `08` | **Seven Segment Search** | `original`           | `1.4271 μs` |  `2.5300 ms` |
 
 
 
