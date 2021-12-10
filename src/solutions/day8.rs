@@ -45,10 +45,6 @@ pub fn solver_part1(input: &[SegmentDisplay]) -> usize {
     })
 }
 
-fn digit_to_string(digit: &Digit) -> String {
-    digit.iter().collect::<String>()
-}
-
 /// Decodes a single SegmentDisplay, and returns the decoded output value.
 fn display_decoder(display: &SegmentDisplay) -> usize {
     let mut known_segments: HashMap<char, Option<&char>> = HashMap::from([
@@ -61,16 +57,12 @@ fn display_decoder(display: &SegmentDisplay) -> usize {
         ('g', None),
     ]);
 
-    //  Let's grabe the known numbers first:
-    //  - 2 segments = 1
-    //  - 3 segments = 7
+    //  Let's grab some known numbers first:
     //  - 4 segments = 4
     //  - 7 segments = 8
 
-    let code_1 = display.digits.iter().find(|d| d.len() == 2).unwrap();
     let code_4 = display.digits.iter().find(|d| d.len() == 4).unwrap();
     let code_7 = display.digits.iter().find(|d| d.len() == 3).unwrap();
-    let code_8 = display.digits.iter().find(|d| d.len() == 7).unwrap();
 
     //  The (a) segment is the difference between the 4 and 7:
     // let a_segment = code_4.symmetric_difference(code_7).find(|_| true);
